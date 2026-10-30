@@ -1,0 +1,44 @@
+// Full 7-Factor Daily Regime Dashboard (QQQ/VIX/SMH/25D Distribution): signal.usethelever.com
+// 88-Scenario Bar-by-Bar US Stock Replay Trainer: replay.usethelever.com
+// Official Store & 3-Min Pre-Market Checklist ($0+): dejunchen770231.gumroad.com
+//@version=6
+indicator("QQQ Traffic Light Regime HUD [UseTheLever]", overlay=true)
+
+tf_input   = input.timeframe("D", "QQQ Regime Timeframe")
+hud_pos    = input.string("Top Right", "Dashboard Position", options=["Top Right", "Bottom Right", "Top Left"])
+
+[qqq_close, qqq_high, qqq_low, qqq_ema21, qqq_ema50, qqq_atr, qqq_atr_sma, qqq_rsi] = request.security(
+     "NASDAQ:QQQ",
+     tf_input,
+     [close, high, low, ta.ema(close, 21), ta.ema(close, 50), ta.atr(14), ta.sma(ta.atr(14), 20), ta.rsi(close, 14)],
+     lookahead=barmerge.lookahead_off
+)
+
+net_move   = math.abs(qqq_close - qqq_close[10])
+total_path = math.sum(qqq_high - qqq_low, 10)
+efficiency = total_path != 0 ? (net_move / total_path) : 0.5
+
+is_uptrend   = qqq_close > qqq_ema21 and qqq_ema21 > qqq_ema50
+is_downtrend = qqq_close < qqq_ema50 and qqq_ema21 < qqq_ema50
+is_wide_chop = (qqq_atr > qqq_atr_sma * 1.05 and efficiency < 0.35) or (qqq_close < qqq_ema21 and qqq_close >= qqq_ema50)
+
+string light_status = "🟡 YELLOW: WIDE CHOP"
+string action_guide = "Cut Size 50% | Take 1.5R Profits | No Chasing"
+color  bg_color     = color.new(#D97706, 15)
+
+if is_uptrend and not is_wide_chop and qqq_rsi > 52
+    light_status := "🟢 GREEN: ATTACK"
+    action_guide := "Full Standard Size (1.0R) | Hold Swing Runners"
+    bg_color     := color.new(#059669, 15)
+else if is_downtrend and not is_wide_chop
+    light_status := "🔴 RED: DEFENSE"
+    action_guide := "Protect Capital | Cash or Tactical Hedges Only"
+    bg_color     := color.new(#DC2626, 15)
+
+var pos = hud_pos == "Top Right" ? position.top_right : hud_pos == "Bottom Right" ? position.bottom_right : position.top_left
+var table hud = table.new(pos, 1, 3, border_width=1, border_color=color.new(color.white, 70))
+
+if barstate.islast
+    table.cell(hud, 0, 0, "QQQ REGIME: " + light_status, text_color=color.white, bgcolor=bg_color, text_size=size.normal)
+    table.cell(hud, 0, 1, "Action: " + action_guide, text_color=color.white, bgcolor=color.new(#1E293B, 10), text_size=size.small)
+    table.cell(hud, 0, 2, "Live 7-Factor Desk: signal.usethelever.com | Replay: replay.usethelever.com", text_color=color.new(color.silver, 5), bgcolor=color.new(#0F172A, 15), text_size=size.tiny)
