@@ -14,7 +14,7 @@
   - Live Web Desk: https://signal.usethelever.com
   - Full Subscription ($19/mo or $149/yr): https://dejunchen770231.gumroad.com/l/awqqfc
 - **🪨 Modaoshi (Whetstone) U.S. Stock Bar-by-Bar Replay Trainer (88 Curated Segments + 3,999 Symbols)**:
-  - Free 10-Round Web Trial (No Login Required): https://replay.usethelever.com/mds/en/trial
+  - Free 20-Segment Interactive Trial (No Card Required): https://replay.usethelever.com/mds/en/trial
   - Monthly Access ($29/mo): https://dejunchen770231.gumroad.com/l/modaoshi-us-replay-monthly
   - 12-Month Pass ($199/yr — Save 43%): https://dejunchen770231.gumroad.com/l/modaoshi-us-replay-annual
 - **🎁 Free Pre-Market 3-Minute Decision Checklist ($0+)**: https://dejunchen770231.gumroad.com
