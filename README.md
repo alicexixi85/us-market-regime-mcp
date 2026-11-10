@@ -48,3 +48,5 @@ Example prompt: *"What is today's market regime, how fresh is the data, and whic
 ## License
 
 MIT
+
+<!-- mcp-name: io.github.alicexixi85/us-market-regime-mcp -->
