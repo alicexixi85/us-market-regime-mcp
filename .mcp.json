@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "us-market-regime": {
+      "command": "python3",
+      "args": ["server.py"]
+    }
+  }
+}
