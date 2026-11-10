@@ -1,22 +1,50 @@
-# U.S. Market Regime Traffic Light & Modaoshi Replay MCP (`us-market-regime-mcp`)
+# U.S. Market Regime MCP
 
-**Stop pressing full-size breakout risk into wide-range Nasdaq chop. Give your AI assistant and trading desk an objective daily QQQ / VIX / SMH regime radar.**
+An open-source [Model Context Protocol](https://modelcontextprotocol.io) server that lets Claude, Cursor or any MCP client read the **published end-of-day U.S. market regime** (GREEN / YELLOW / RED) and the metrics behind it: QQQ vs. its 200-day average, drawdown from the high, VIX vs. its 20-day average, and distribution days over the last 25 sessions.
 
-`us-market-regime-mcp` is a lightweight Python Model Context Protocol (`stdio`) connector and TradingView HUD companion for discretionary U.S. stock swing and day traders. It reads the live end-of-day macro risk state from **[signal.usethelever.com](https://signal.usethelever.com)** (`niuxiong-signal.json`) and pairs with **[replay.usethelever.com](https://replay.usethelever.com/mds/en/trial)** (Modaoshi Bar-by-Bar U.S. Stock Replay Trainer).
+Zero dependencies, Python 3.10+. It is a read-only client for the public feed behind [signal.usethelever.com](https://signal.usethelever.com).
 
-## What This Repository Includes
-1. **`us_market_regime_mcp.py` (30-Line Python MCP Connector)**: Allows Claude Desktop, Cursor, or any MCP client to query today's official U.S. equity macro posture (`GREEN` Offense / `YELLOW` Wide-Band Caution / `RED` Capital Defense), 0–100 Risk Score, QQQ distance vs. SMA200, and 25-day institutional distribution day count from `https://signal.usethelever.com/niuxiong-signal.json`.
-2. **`qqq_traffic_light_hud.pine` (50-Line TradingView Pine Script v6 HUD)**: A zero-coding corner dashboard that pins QQQ's real-time wide-band regime and position-sizing mandate (`1.0R` vs. `0.5R` vs. `0R Cash`) in the top-right corner of any U.S. stock chart.
-3. **`llms.txt`**: Machine-readable index for AI agents and search crawlers.
+> **Educational market context only.** The server returns a description of the broad index environment. It does not recommend securities, give position sizes, or predict prices. Every response includes the `as_of` date and a disclaimer.
 
-## Complete Your Discretionary U.S. Stock Decision & Replay Loop
-- **🚦 Live 7-Factor U.S. Market Regime Dashboard (`Traffic Light`)**:
-  - Live Web Desk: https://signal.usethelever.com
-  - Full Subscription ($19/mo or $149/yr): https://dejunchen770231.gumroad.com/l/awqqfc
-- **🪨 Modaoshi (Whetstone) U.S. Stock Bar-by-Bar Replay Trainer (88 Curated Segments + 3,999 Symbols)**:
-  - Free 20-Segment Interactive Trial (No Card Required): https://replay.usethelever.com/mds/en/trial
-  - Monthly Access ($29/mo): https://dejunchen770231.gumroad.com/l/modaoshi-us-replay-monthly
-  - 12-Month Pass ($199/yr — Save 43%): https://dejunchen770231.gumroad.com/l/modaoshi-us-replay-annual
-- **🎁 Free Pre-Market 3-Minute Decision Checklist ($0+)**: https://dejunchen770231.gumroad.com
+## Tools
 
-*(Use code `WHETSTONE20` at checkout on Gumroad for 20% off storewide. Support: `merciai@agent.qq.com`)*
+| Tool | Returns |
+|---|---|
+| `get_market_regime` | Regime, risk score (0-100), confidence, triggered rules, metrics, `as_of` / `published_at`, data age in days and a stale-data warning. If the feed cannot be reached the tool returns an error instead of an old cached value. |
+| `explain_regime_model` | What each state and metric means, update cadence and the model's limits. |
+
+## Install
+
+```bash
+git clone https://github.com/alicexixi85/us-market-regime-mcp.git
+```
+
+```json
+{
+  "mcpServers": {
+    "us-market-regime": {
+      "command": "python3",
+      "args": ["/absolute/path/to/us-market-regime-mcp/server.py"]
+    }
+  }
+}
+```
+
+Docker: `docker build -t us-market-regime-mcp . && docker run -i --rm us-market-regime-mcp`
+
+Terminal: `python3 server.py --print`
+
+Example prompt: *"What is today's market regime, how fresh is the data, and which rule triggered it?"*
+
+## TradingView HUD
+
+`qqq_traffic_light_hud.pine` is a separate, chart-only Pine Script v6 indicator that labels QQQ's trend context (supportive / choppy / downtrend) from EMAs, ATR and range efficiency. It is a simplified approximation and will not always match the published regime.
+
+## Related
+
+- Daily dashboard: [signal.usethelever.com](https://signal.usethelever.com) (paid access via [Gumroad](https://dejunchen770231.gumroad.com/l/awqqfc))
+- Bar-by-bar replay practice for U.S. stocks: [replay.usethelever.com](https://replay.usethelever.com/mds/en/)
+
+## License
+
+MIT

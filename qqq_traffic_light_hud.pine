@@ -1,6 +1,6 @@
-// Full 7-Factor Daily Regime Dashboard (QQQ/VIX/SMH/25D Distribution): signal.usethelever.com
-// 88-Scenario Bar-by-Bar US Stock Replay Trainer: replay.usethelever.com
-// Official Store & 3-Min Pre-Market Checklist ($0+): dejunchen770231.gumroad.com
+// QQQ Regime HUD: a simplified, chart-only version of the end-of-day regime published at signal.usethelever.com
+// Educational market context only. Not investment advice and not a buy/sell signal.
+// MIT License
 //@version=6
 indicator("QQQ Traffic Light Regime HUD [UseTheLever]", overlay=true)
 
@@ -22,17 +22,17 @@ is_uptrend   = qqq_close > qqq_ema21 and qqq_ema21 > qqq_ema50
 is_downtrend = qqq_close < qqq_ema50 and qqq_ema21 < qqq_ema50
 is_wide_chop = (qqq_atr > qqq_atr_sma * 1.05 and efficiency < 0.35) or (qqq_close < qqq_ema21 and qqq_close >= qqq_ema50)
 
-string light_status = "🟡 YELLOW: WIDE CHOP"
-string action_guide = "Cut Size 50% | Take 1.5R Profits | No Chasing"
+string light_status = "🟡 YELLOW: CHOPPY / MIXED"
+string context_note = "Wide range or mixed trend; follow-through has been less reliable"
 color  bg_color     = color.new(#D97706, 15)
 
 if is_uptrend and not is_wide_chop and qqq_rsi > 52
-    light_status := "🟢 GREEN: ATTACK"
-    action_guide := "Full Standard Size (1.0R) | Hold Swing Runners"
+    light_status := "🟢 GREEN: TREND SUPPORTIVE"
+    context_note := "QQQ above rising 21/50 EMA, range efficiency normal"
     bg_color     := color.new(#059669, 15)
 else if is_downtrend and not is_wide_chop
-    light_status := "🔴 RED: DEFENSE"
-    action_guide := "Protect Capital | Cash or Tactical Hedges Only"
+    light_status := "🔴 RED: DOWNTREND"
+    context_note := "QQQ below falling 21/50 EMA"
     bg_color     := color.new(#DC2626, 15)
 
 var pos = hud_pos == "Top Right" ? position.top_right : hud_pos == "Bottom Right" ? position.bottom_right : position.top_left
@@ -40,5 +40,5 @@ var table hud = table.new(pos, 1, 3, border_width=1, border_color=color.new(colo
 
 if barstate.islast
     table.cell(hud, 0, 0, "QQQ REGIME: " + light_status, text_color=color.white, bgcolor=bg_color, text_size=size.normal)
-    table.cell(hud, 0, 1, "Action: " + action_guide, text_color=color.white, bgcolor=color.new(#1E293B, 10), text_size=size.small)
-    table.cell(hud, 0, 2, "Live 7-Factor Desk: signal.usethelever.com | Replay: replay.usethelever.com", text_color=color.new(color.silver, 5), bgcolor=color.new(#0F172A, 15), text_size=size.tiny)
+    table.cell(hud, 0, 1, "Context: " + context_note, text_color=color.white, bgcolor=color.new(#1E293B, 10), text_size=size.small)
+    table.cell(hud, 0, 2, "Educational context only, not a trade signal | signal.usethelever.com", text_color=color.new(color.silver, 5), bgcolor=color.new(#0F172A, 15), text_size=size.tiny)
