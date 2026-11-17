@@ -6,6 +6,17 @@ Zero dependencies, Python 3.10+. It is a read-only client for the public feed be
 
 > **Educational market context only.** The server returns a description of the broad index environment. It does not recommend securities, give position sizes, or predict prices. Every response includes the `as_of` date and a disclaimer.
 
+**Try it in 10 seconds (no MCP client needed):**
+
+```bash
+git clone https://github.com/alicexixi85/us-market-regime-mcp.git && cd us-market-regime-mcp
+python3 server.py --print
+```
+
+It prints the latest published reading as JSON: `regime` (GREEN / YELLOW / RED), `risk_score_0_100`, `confidence`, the `triggered_rules` and the metrics behind them (QQQ vs. its 200-day average, drawdown, VIX, distribution days).
+
+Listed in the [official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=us-market-regime-mcp) as `io.github.alicexixi85/us-market-regime-mcp` and on [Glama](https://glama.ai/mcp/servers/alicexixi85/us-market-regime-mcp).
+
 ## Tools
 
 | Tool | Returns |
@@ -44,6 +55,7 @@ Example prompt: *"What is today's market regime, how fresh is the data, and whic
 
 - Daily dashboard: [signal.usethelever.com](https://signal.usethelever.com) (paid access via [Gumroad](https://dejunchen770231.gumroad.com/l/awqqfc))
 - Bar-by-bar replay practice for U.S. stocks: [replay.usethelever.com](https://replay.usethelever.com/mds/en/)
+- Guides: [reviewing trades without hindsight bias](https://replay.usethelever.com/learn/hindsight-bias-trade-review), [position size from your stop](https://replay.usethelever.com/learn/position-size-from-stop)
 
 ## License
 
