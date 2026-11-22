@@ -86,7 +86,7 @@ Listed in the [official MCP Registry](https://registry.modelcontextprotocol.io/v
 
 - **U.S. Market Regime Traffic Light (100% Free)**: [signal.usethelever.com](https://signal.usethelever.com) — daily end-of-day regime dashboard, completely free with no login or paywall.
 - **Whetstone Zero-Login Blind Chart Replay (Free)**: [replay.usethelever.com/mds/en/trial](https://replay.usethelever.com/mds/en/trial) — practice bar-by-bar execution, stop placement, and R-multiple sizing on anonymized historical U.S. stock charts without hindsight bias.
-- **Whetstone 7-Day Sprint Pass ($9 one-time)**: [gumroad.com/l/whetstone-7d-sprint](https://gumroad.com/l/whetstone-7d-sprint) — 7 days of full blind replay & prop-firm drawdown discipline drills (one-time pass, no auto-renewal).
+- **Whetstone 7-Day Sprint Pass ($9 one-time)**: [dejunchen770231.gumroad.com/l/whetstone-7d-sprint](https://dejunchen770231.gumroad.com/l/whetstone-7d-sprint) — 7 days of full blind replay & prop-firm drawdown discipline drills (one-time pass, no auto-renewal).
 - **Whetstone Risk Lab & Guides**: [en.usethelever.com](https://en.usethelever.com/) · [Reviewing Trades Without Hindsight Bias](https://en.usethelever.com/learn/hindsight-bias-trade-review) · [Position Size From Your Stop](https://en.usethelever.com/learn/position-size-from-stop) · [Trailing Drawdown Explained](https://en.usethelever.com/learn/trailing-drawdown-explained)
 - **Support**: `support@usethelever.com`
 
