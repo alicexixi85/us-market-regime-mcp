@@ -3,15 +3,21 @@
   "name": "io.github.alicexixi85/us-market-regime-mcp",
   "title": "U.S. Market Regime",
   "description": "End-of-day QQQ/VIX GREEN/YELLOW/RED market regime context. Educational, not investment advice.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "url": "https://github.com/alicexixi85/us-market-regime-mcp",
     "source": "github"
   },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.usethelever.com/market-regime/mcp"
+    }
+  ],
   "packages": [
     {
       "registryType": "oci",
-      "identifier": "ghcr.io/alicexixi85/us-market-regime-mcp:0.1.0",
+      "identifier": "ghcr.io/alicexixi85/us-market-regime-mcp:0.2.0",
       "transport": {
         "type": "stdio"
       }
