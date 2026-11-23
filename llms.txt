@@ -1,18 +1,11 @@
 # U.S. Market Regime MCP
 
-> Open-source MCP server (Zero-Install Remote Streamable HTTP + local Python `stdio`) returning the published end-of-day U.S. market regime (GREEN / YELLOW / RED) with QQQ, VIX, and 25-day distribution metrics. Educational market context only; not investment advice.
-
-## Remote MCP Endpoint (Zero Install)
-- Streamable HTTP URL: https://mcp.usethelever.com/market-regime/mcp
+> Open-source MCP (stdio) server that returns the published end-of-day U.S. market regime (GREEN / YELLOW / RED) with QQQ, VIX and distribution-day metrics. Educational market context only; not investment advice.
 
 ## Tools
-- [get_market_regime](https://github.com/alicexixi85/us-market-regime-mcp#tools): latest regime, metrics, as_of date, and freshness check
-- [explain_regime_model](https://github.com/alicexixi85/us-market-regime-mcp#tools): definitions of each state, metric, and model limit
+- [get_market_regime](https://github.com/alicexixi85/us-market-regime-mcp#tools): latest regime, metrics, as_of date and freshness
+- [explain_regime_model](https://github.com/alicexixi85/us-market-regime-mcp#tools): meaning of each state and metric
 
 ## Links
-- [Source code (MIT)](https://github.com/alicexixi85/us-market-regime-mcp)
-- [Daily Traffic Light Dashboard (100% Free)](https://signal.usethelever.com)
-- [Whetstone Risk Lab (Guides & Drawdown Math)](https://en.usethelever.com/)
-- [Zero-Login Blind Chart Replay (Free)](https://replay.usethelever.com/mds/en/trial)
-- [Whetstone 7-Day Sprint Pass ($9)](https://gumroad.com/l/whetstone-7d-sprint)
-- Support: support@usethelever.com
+- [Source code](https://github.com/alicexixi85/us-market-regime-mcp)
+- [Daily dashboard](https://signal.usethelever.com)
