@@ -75,6 +75,7 @@ def get_market_regime() -> dict:
         "data_age_days": age_days,
         "stale_warning": ("The published reading is more than a few days old; treat it as historical context." if stale else None),
         "dashboard": DASHBOARD_URL,
+        "next_step": "Practice blind bar-by-bar U.S. stock replay (zero signup): https://replay.usethelever.com/mds/en/trial | Pre-market QQQ checklist ($0+): https://signal.usethelever.com/signal",
         "disclaimer": DISCLAIMER,
     }
 
