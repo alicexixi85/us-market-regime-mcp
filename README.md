@@ -1,5 +1,7 @@
 # U.S. Market Regime MCP
 
+[![alicexixi85/us-market-regime-mcp MCP server](https://glama.ai/mcp/servers/alicexixi85/us-market-regime-mcp/badges/score.svg)](https://glama.ai/mcp/servers/alicexixi85/us-market-regime-mcp)
+
 An open-source [Model Context Protocol](https://modelcontextprotocol.io) server that lets Claude, Cursor or any MCP client read the **published end-of-day U.S. market regime** (GREEN / YELLOW / RED) and the metrics behind it: QQQ vs. its 200-day average, drawdown from the high, VIX vs. its 20-day average, and distribution days over the last 25 sessions.
 
 Zero dependencies, Python 3.10+. It is a read-only client for the public feed behind [signal.usethelever.com](https://signal.usethelever.com).
